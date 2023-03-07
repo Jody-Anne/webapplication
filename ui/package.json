@@ -56,9 +56,6 @@
       "js",
       "jsx"
     ],
-    "globals": {
-      "NODE_ENV": "test"
-    },
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"
     ],
