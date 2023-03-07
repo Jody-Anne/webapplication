@@ -75,6 +75,10 @@ function MyComponent() {
             <option value="music">🎶 Music</option>
             <option value="audiobook">🕮 Audiobooks</option>
             <option value="ebook">📚 Books</option>
+            <option value="ebook">📺 TV Shows</option>
+            <option value="music">📹 Music Videos</option>
+            <option value="audiobook">🎙️ Podcasts</option>
+            <option value="ebook">🎞️ Movie</option>
      </select>
       <button type="submit">Search</button>
       </form>
