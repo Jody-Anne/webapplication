@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet'); // add this line
 var cors = require('cors')
 const fs = require('fs');
 const axios = require('axios');
@@ -30,6 +31,7 @@ const writeData = (dataArr) => {
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(helmet()); // add this line
 
 app.get('/favourites/', (req, res) => {
   const favouriteList = readData();
@@ -71,4 +73,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
 })
-
