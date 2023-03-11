@@ -1,12 +1,11 @@
 const express = require('express');
 const helmet = require('helmet'); // add this line
-var cors = require('cors')
+const cors = require('cors')
 const fs = require('fs');
 const axios = require('axios');
 
 const DATASTORE_PATH = './datastore';
 const DATASTORE = `${DATASTORE_PATH}/favourites-db.json`;
-const PORT = process.env.PORT || 3200;
 
 const initDatastore = () => {
   fs.mkdir(DATASTORE_PATH, { recursive: true }, (err) => {
@@ -49,19 +48,22 @@ app.post('/favourites/', (req, res) => {
     })
     writeData(favouriteList);
   }
-  res.send(readData())
+  res.send(favouriteList)
 })
 
 app.delete('/favourites/:id', (req, res) => {
   const favouriteList = readData();
   const newFavouriteList = favouriteList.filter(favourite => favourite.id !== req.params.id);
   writeData(newFavouriteList)
-  res.send(readData())
+  res.send(newFavouriteList)
 })
 
 app.get('/search', async (req, res) => {
-  const { q } = req.query;
-  const result = await axios.get(`https://itunes.apple.com/search?term=${q}&limit=10`);
+  const { q, media } = req.query;
+  const result = await axios.get(`https://itunes.apple.com/search?term=${q}&media=${media}&limit=10`);
+
+  console.log(result)
+
   res.json(result.data.results);
 });
 
@@ -70,6 +72,4 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!')
 })
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`)
-})
+module.exports = app;
