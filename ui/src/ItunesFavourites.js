@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const FAVOURITES_API = 'http://localhost:3200/favourites'
-const SEARCH_API = 'http://localhost:3200/search'
+const FAVOURITES_API = 'https://webapplication-qpi4.onrender.com/favourites'
+const SEARCH_API = 'https://webapplication-qpi4.onrender.com/search'
 
 function MyComponent() {
   const [favourites, setFavourites] = useState([]);
