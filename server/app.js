@@ -1,5 +1,5 @@
 const express = require('express');
-const helmet = require('helmet'); // add this line
+const helmet = require('helmet');
 const cors = require('cors')
 const fs = require('fs');
 const axios = require('axios');
@@ -30,7 +30,7 @@ const writeData = (dataArr) => {
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(helmet()); // add this line
+app.use(helmet());
 
 app.get('/favourites/', (req, res) => {
   const favouriteList = readData();
@@ -61,9 +61,6 @@ app.delete('/favourites/:id', (req, res) => {
 app.get('/search', async (req, res) => {
   const { q, media } = req.query;
   const result = await axios.get(`https://itunes.apple.com/search?term=${q}&media=${media}&limit=10`);
-
-  console.log(result)
-
   res.json(result.data.results);
 });
 

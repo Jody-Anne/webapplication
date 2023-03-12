@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create a snapshot and test that it matches 1`] = `
+<div
+  className="Header"
+>
+  <div
+    className="wrapper"
+  >
+    <header
+      className="Head"
+    >
+      <h1>
+        iTunes Search
+      </h1>
+    </header>
+    <div>
+      <div>
+        <h3>
+          Search for books or music on the iTunes store 😃:
+        </h3>
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            name="query"
+            type="text"
+          />
+          <select
+            name="media"
+            onChange={[Function]}
+            value="all"
+          >
+            <option
+              value="all"
+            >
+              All
+            </option>
+            <option
+              value="music"
+            >
+              🎶 Music
+            </option>
+            <option
+              value="audiobook"
+            >
+              🕮 Audiobooks
+            </option>
+            <option
+              value="ebook"
+            >
+              📚 Books
+            </option>
+            <option
+              value="tvShow"
+            >
+              📺 TV Shows
+            </option>
+            <option
+              value="musicVideo"
+            >
+              📹 Music Videos
+            </option>
+            <option
+              value="podcast"
+            >
+              🎙️ Podcasts
+            </option>
+            <option
+              value="movie"
+            >
+              🎞️ Movie
+            </option>
+          </select>
+          <button
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+        <div
+          className="results-container"
+        >
+          <ul
+            className="search-results"
+          />
+        </div>
+      </div>
+      <div
+        className="favourites-container"
+      >
+        <h3>
+          Favourites🫶:
+        </h3>
+        <ul
+          className="favourites-list"
+        >
+          <p>
+            No favourites yet!
+          </p>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
