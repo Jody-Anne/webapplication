@@ -44,7 +44,7 @@ describe('MyComponent', () => {
     fireEvent.click(searchBtn);
 
     await waitFor(() => {
-      expect(axios.get).toHaveBeenCalledWith('http://localhost:3200/search?q=mysong&media=music');
+      expect(axios.get).toHaveBeenCalledWith('https://webapplication-qpi4.onrender.com/search?q=mysong&media=music');
       const searchResult = appRender.getByText('Track 1 (Artist 1)');
       expect(searchResult).toBeInTheDocument();
     });
@@ -65,7 +65,7 @@ describe('MyComponent', () => {
     await waitFor(() => {
       const favButtons = appRender.getAllByText('Favourite 👌');
       fireEvent.click(favButtons[0]);
-      expect(axios.post).toHaveBeenCalledWith('http://localhost:3200/favourites', {
+      expect(axios.post).toHaveBeenCalledWith('https://webapplication-qpi4.onrender.com/favourites', {
         name: 'Track 1',
         id: 1,
         artist: 'Artist 1',
@@ -91,7 +91,7 @@ describe('MyComponent', () => {
       expect(favResult).toBeInTheDocument();
       const deleteButtons = getAllByText('Delete 😔');
       fireEvent.click(deleteButtons[0]);
-      expect(axios.delete).toHaveBeenCalledWith('http://localhost:3200/favourites/1');
+      expect(axios.delete).toHaveBeenCalledWith('https://webapplication-qpi4.onrender.com/favourites/1');
     });
 
     await waitFor(() => {
